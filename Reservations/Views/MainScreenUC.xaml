@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="Reservations.Views.MainScreenUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" x:Name="mainScreenView"
+             xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:converters="clr-namespace:Reservations.Converters"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <toolkit:BusyIndicator x:Name="busyIndicator">
+    <Grid>
+        <Grid.Resources>
+            <converters:DisplayTablesSelectedConverter x:Key="tablesDisplayConverter"></converters:DisplayTablesSelectedConverter>
+            <Style TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Ellipse Height="30" Width="60">
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1.0,0.5">
+                                            <GradientStop Color="DarkSlateBlue" Offset="0.0"/>
+                                            <GradientStop Color="SkyBlue" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                               </Ellipse>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Grid>
+    
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4">
+         <Button Content="Settings" Command="{Binding SettingsCommand}" CommandParameter="{Binding ElementName=mainScreenView}" Width="Auto" Height="Auto" Margin="4"></Button>
+                <Button Content="New" ToolTip="New Reservation" Foreground="Black" Command="{Binding NewReservationCommand}" Width="Auto" Height="Auto" Margin="4"></Button>
+            <Button Content="Update" ToolTip="Update Reservation" Command="{Binding EditReservationCommand}" Width="Auto" Height="Auto" Margin="4"></Button>
+            <Button Content="Delete" ToolTip="Delete Reservation" Command="{Binding DeleteReservationCommand}" Width="Auto" Height="Auto" Margin="4"></Button>
+            <Button Content="Close" Command="{Binding CloseCommand}" Width="Auto" Height="Auto" Margin="4"></Button>
+        </StackPanel>
+        <GroupBox Header="Reservations" Grid.Row="0">
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="2" ItemsSource="{Binding ReservationModelList,UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Height="250"
+                  SelectedItem="{Binding SelectedReservationModel,UpdateSourceTrigger=PropertyChanged}" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False" Margin="3" AlternatingRowBackground="LightBlue">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding CustomerName}" Header="Customer Name"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ContactNumber}" Header="Contact Number"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PartyOf}" Header="Party Of"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=Table,Converter={StaticResource tablesDisplayConverter}}" Header="Table(s) ID"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding CheckInDate}" Header="Chekin Date/Time"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        </GroupBox>
+        <TextBlock Grid.Row="2" Text="Please select the Tables and Reservations XML file paths using the Settings button." 
+                   TextAlignment="Left" Margin="2"></TextBlock>
+    </Grid>
+    </toolkit:BusyIndicator>
+</UserControl>

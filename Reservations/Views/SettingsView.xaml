@@ -1,0 +1,54 @@
+﻿<Window x:Class="Reservations.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             x:Name="SettingsWindow"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Title="Settings" ResizeMode="NoResize"
+             d:DesignHeight="300" d:DesignWidth="300" Width="500" Height="160">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Ellipse Height="30" Width="80">
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1.0,0.5">
+                                            <GradientStop Color="DarkSlateBlue" Offset="0.0"/>
+                                            <GradientStop Color="SkyBlue" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Grid>
+
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Tables File" Margin="3" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+        <TextBlock Text=":" Margin="3" Grid.Column="1"></TextBlock>
+        <TextBox IsEnabled="False" Text="{Binding TablesXMLFilePath}" ToolTip="{Binding TablesXMLFilePath}" Margin="3" Grid.Column="2" Width="250" Height="25" VerticalAlignment="Top"></TextBox>
+        <Button Content="Browse" Command="{Binding FolderBrowseCommand}" CommandParameter="Table" Margin="3" Grid.Column="3" Width="Auto" Height="Auto" VerticalAlignment="Top"></Button>
+        <TextBlock Text="Reservations File" Grid.Row="1" Margin="3" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+        <TextBlock Text=":" Margin="3" Grid.Row="1" Grid.Column="1"></TextBlock>
+        <TextBox IsEnabled="False" Text="{Binding ReservationsXMLFilePath}" ToolTip="{Binding ReservationsXMLFilePath}" Margin="3" Grid.Row="1" Grid.Column="2" Width="250" Height="25" VerticalAlignment="Top"></TextBox>
+        <Button Content="Browse" Command="{Binding FolderBrowseCommand}" CommandParameter="Reservation" Margin="3" Grid.Row="1" Grid.Column="3" Width="Auto" Height="Auto" VerticalAlignment="Top"></Button>
+        <Button Content="OK" Command="{Binding OKCommand}" CommandParameter="{Binding ElementName=SettingsWindow}" Margin="3" HorizontalAlignment="Center"
+                Grid.Row="2" Grid.Column="2" Width="Auto" Height="Auto" VerticalAlignment="Top"></Button>
+    </Grid>
+</Window>

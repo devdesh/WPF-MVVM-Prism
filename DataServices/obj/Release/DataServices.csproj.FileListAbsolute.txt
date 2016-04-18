@@ -1,0 +1,13 @@
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\bin\Release\DataServices.dll
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\bin\Release\DataServices.pdb
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\bin\Release\Framework.dll
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\bin\Release\Microsoft.Practices.Prism.dll
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\bin\Release\Microsoft.Practices.Prism.UnityExtensions.dll
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\bin\Release\Microsoft.Practices.Unity.dll
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\bin\Release\Framework.pdb
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\obj\Release\DataServices.csprojResolveAssemblyReference.cache
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\obj\Release\DataServices.dll
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\DataServices\obj\Release\DataServices.pdb
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\RestaurantReservationSystem\bin\Release\DataServices.dll
+C:\Users\Shruti\Desktop\Theranos Solution\RestaurantReservationSystem\RestaurantReservationSystem\bin\Release\DataServices.pdb
